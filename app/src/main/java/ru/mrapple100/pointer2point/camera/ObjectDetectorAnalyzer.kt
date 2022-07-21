@@ -70,7 +70,20 @@ class ObjectDetectorAnalyzer(
         //-16777216 - black
         //-1 - white
         //-6028544 - red
+        val colorInt = inputArray[0]
+        Log.d("IMAGE300",colorInt.toString())
+        val hex = Integer.toString(16777216 + colorInt, 16)
+        Log.d("IMAGE300",hex.toString())
 
+        // Log.d("IMAGE300", hex)
+        if (hex.length == 6) {
+            /*Log.d(
+                "IMAGE300",
+                hex2Rgb(hex)!!.components[0].toString() + " " +
+                        hex2Rgb(hex)!!.components[1].toString() + " " +
+                        hex2Rgb(hex)!!.components[2].toString() + " "
+            )*/
+        }
         var y1 = 0
         var x1 = 0
         for(i in inputArray.indices) {
@@ -85,12 +98,17 @@ class ObjectDetectorAnalyzer(
                             hex2Rgb(hex)!!.components[2].toString() + " "
                 )*/
 
-                if (hex2Rgb(hex)!!.components[0] > 150 && hex2Rgb(hex)!!.components[1] < 70 && hex2Rgb(hex)!!.components[2] < 70
+                if (hex2Rgb(hex)!!.components[0] > 80 && hex2Rgb(hex)!!.components[0] < 250 && hex2Rgb(hex)!!.components[1] < 90 && hex2Rgb(hex)!!.components[2] > 100
                 ) {
                      y1 = i / config.inputSize
                      x1 = i % config.inputSize
-                    Log.d("IMAGE300", "КРАСНЫЙ1111")
-
+                    Log.d("IMAGE300", "ФИОЛЕТОВЫЙ1111")
+                    Log.d(
+                        "IMAGE300",
+                        hex2Rgb(hex)!!.components[0].toString() + " " +
+                                hex2Rgb(hex)!!.components[1].toString() + " " +
+                                hex2Rgb(hex)!!.components[2].toString() + " "
+                    )
                     break
 
                 }
@@ -110,12 +128,17 @@ class ObjectDetectorAnalyzer(
                             hex2Rgb(hex)!!.components[2].toString() + " "
                 )*/
 
-                if (hex2Rgb(hex)!!.components[0] > 150 && hex2Rgb(hex)!!.components[1] < 70 && hex2Rgb(hex)!!.components[2] < 70
+                if (hex2Rgb(hex)!!.components[0] > 80 && hex2Rgb(hex)!!.components[0] < 250 && hex2Rgb(hex)!!.components[1] < 90 && hex2Rgb(hex)!!.components[2] > 100
                 ) {
                     y2 = (inputArray.size-i-1) / config.inputSize
                     x2 = (inputArray.size-i-1) % config.inputSize
-                    Log.d("IMAGE300", "КРАСНЫЙ2222")
-
+                    Log.d("IMAGE300", "ФИОЛЕТОВЫЙ2222")
+                    Log.d(
+                        "IMAGE300",
+                        hex2Rgb(hex)!!.components[0].toString() + " " +
+                                hex2Rgb(hex)!!.components[1].toString() + " " +
+                                hex2Rgb(hex)!!.components[2].toString() + " "
+                    )
                     break
 
                 }
